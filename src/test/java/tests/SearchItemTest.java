@@ -21,15 +21,7 @@ public class SearchItemTest extends Base {
 		super();
 	}
 
-	//@BeforeClass
-//	@BeforeTest
-//	public void beforeClass() {
-//		test=extent.createTest("Open test URL");
-//		initialise();
-//		test.pass("Broswer and the test URL initiated");
-//	}
-
-	@Test(priority=0)
+	@Test(priority=4)
 	public void verifySearchItem() {
 		test=extent.createTest("Verify the search page title");
 		HomePage home = new HomePage(driver);
@@ -47,10 +39,26 @@ public class SearchItemTest extends Base {
 		test.log(Status.PASS, "The expected Page Title: " +expectedSearchPageTitle+ " match the actual Page Title: " +actualSearchPageTitle);
 	}
 	
-	//@AfterClass
-//	@AfterTest
-//	public void tearDown() {
-//		driver.close();
-//	}
+	@Test(priority=5)
+	public void verifyPrimeItems() {
+		test=extent.createTest("Select Prime Items : Verify by the Prime Items title");
+		HomePage home = new HomePage(driver);
+		home.searchItem();
+		String partialtxt=home.getSearchItem();
+		test.log(Status.PASS, "Entered search item - " +partialtxt);
+		
+		SearchResultPage searchResultPage = home.selectFromAutoSelect();
+		String fulltxt=home.getSearchItem();
+		test.log(Status.PASS, "Selected " +fulltxt+  " from the auto-select drop down");
+		
+		searchResultPage.verifySearchResultPageTitle();
+		String actualSearchPageTitle = prop.getProperty("expectedResultTitle");
+		String expectedSearchPageTitle = searchResultPage.getResultPageTitle();
+		test.log(Status.PASS, "The expected Page Title: " +expectedSearchPageTitle+ " match the actual Page Title: " +actualSearchPageTitle);
+		
+		searchResultPage.clickPrimeCheckbox();
+		test.log(Status.PASS, "Verified prime items displayed by lable: " +searchResultPage.getPrimeLable());
+		
+	}
 
 }

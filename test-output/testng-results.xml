@@ -1,40 +1,175 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="7366" started-at="2018-03-30T16:48:31Z" finished-at="2018-03-30T16:48:39Z">
+  <suite name="Suite" duration-ms="32988" started-at="2018-04-01T06:13:25Z" finished-at="2018-04-01T06:13:58Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="7366" started-at="2018-03-30T16:48:31Z" finished-at="2018-03-30T16:48:39Z">
-      <class name="tests.LogOnTest">
-        <test-method status="PASS" signature="startReport()[pri:0, instance:tests.LogOnTest@6dde5c8c]" name="startReport" is-config="true" duration-ms="138" started-at="2018-03-30T16:48:31Z" finished-at="2018-03-30T16:48:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startReport -->
-        <test-method status="PASS" signature="initialise()[pri:0, instance:tests.LogOnTest@6dde5c8c]" name="initialise" is-config="true" duration-ms="3258" started-at="2018-03-30T16:48:31Z" finished-at="2018-03-30T16:48:34Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initialise -->
-        <test-method status="PASS" signature="successfulLogOn()[pri:0, instance:tests.LogOnTest@6dde5c8c]" name="successfulLogOn" duration-ms="4092" started-at="2018-03-30T16:48:34Z" finished-at="2018-03-30T16:48:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- successfulLogOn -->
-        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:tests.LogOnTest@6dde5c8c]" name="getResult" is-config="true" duration-ms="2" started-at="2018-03-30T16:48:39Z" finished-at="2018-03-30T16:48:39Z">
+    <test name="Search Related Test Cases" duration-ms="11756" started-at="2018-04-01T06:13:25Z" finished-at="2018-04-01T06:13:37Z">
+      <class name="tests.SearchItemTest">
+        <test-method status="PASS" signature="initialise(java.lang.String)[pri:0, instance:tests.SearchItemTest@24b1d79b]" name="initialise" is-config="true" duration-ms="3004" started-at="2018-04-01T06:13:25Z" finished-at="2018-04-01T06:13:28Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=successfulLogOn status=SUCCESS method=LogOnTest.successfulLogOn()[pri:0, instance:tests.LogOnTest@6dde5c8c] output={null}]]]>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialise -->
+        <test-method status="PASS" signature="verifySearchItem()[pri:4, instance:tests.SearchItemTest@24b1d79b]" name="verifySearchItem" duration-ms="2247" started-at="2018-04-01T06:13:28Z" finished-at="2018-04-01T06:13:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySearchItem -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:tests.SearchItemTest@24b1d79b]" name="getResult" is-config="true" duration-ms="3" started-at="2018-04-01T06:13:31Z" finished-at="2018-04-01T06:13:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifySearchItem status=SUCCESS method=SearchItemTest.verifySearchItem()[pri:4, instance:tests.SearchItemTest@24b1d79b] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method status="PASS" signature="closeReport()[pri:0, instance:tests.LogOnTest@6dde5c8c]" name="closeReport" is-config="true" duration-ms="243" started-at="2018-03-30T16:48:39Z" finished-at="2018-03-30T16:48:39Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:tests.SearchItemTest@24b1d79b]" name="tearDown" is-config="true" duration-ms="139" started-at="2018-04-01T06:13:31Z" finished-at="2018-04-01T06:13:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="initialise(java.lang.String)[pri:0, instance:tests.SearchItemTest@24b1d79b]" name="initialise" is-config="true" duration-ms="2683" started-at="2018-04-01T06:13:31Z" finished-at="2018-04-01T06:13:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialise -->
+        <test-method status="PASS" signature="verifyPrimeItems()[pri:5, instance:tests.SearchItemTest@24b1d79b]" name="verifyPrimeItems" duration-ms="3554" started-at="2018-04-01T06:13:33Z" finished-at="2018-04-01T06:13:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyPrimeItems -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:tests.SearchItemTest@24b1d79b]" name="getResult" is-config="true" duration-ms="0" started-at="2018-04-01T06:13:37Z" finished-at="2018-04-01T06:13:37Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyPrimeItems status=SUCCESS method=SearchItemTest.verifyPrimeItems()[pri:5, instance:tests.SearchItemTest@24b1d79b] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:tests.SearchItemTest@24b1d79b]" name="tearDown" is-config="true" duration-ms="106" started-at="2018-04-01T06:13:37Z" finished-at="2018-04-01T06:13:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- tests.SearchItemTest -->
+    </test> <!-- Search Related Test Cases -->
+    <test name="Log on Related Test Cases" duration-ms="21066" started-at="2018-04-01T06:13:37Z" finished-at="2018-04-01T06:13:58Z">
+      <class name="tests.LogOnTest">
+        <test-method status="PASS" signature="startReport()[pri:0, instance:tests.LogOnTest@43d7741f]" name="startReport" is-config="true" duration-ms="129" started-at="2018-04-01T06:13:25Z" finished-at="2018-04-01T06:13:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startReport -->
+        <test-method status="PASS" signature="initialise(java.lang.String)[pri:0, instance:tests.LogOnTest@43d7741f]" name="initialise" is-config="true" duration-ms="2664" started-at="2018-04-01T06:13:37Z" finished-at="2018-04-01T06:13:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialise -->
+        <test-method status="PASS" signature="successfulLogOn()[pri:0, instance:tests.LogOnTest@43d7741f]" name="successfulLogOn" duration-ms="4423" started-at="2018-04-01T06:13:40Z" finished-at="2018-04-01T06:13:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- successfulLogOn -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:tests.LogOnTest@43d7741f]" name="tearDown" is-config="true" duration-ms="1027" started-at="2018-04-01T06:13:44Z" finished-at="2018-04-01T06:13:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:tests.LogOnTest@43d7741f]" name="getResult" is-config="true" duration-ms="0" started-at="2018-04-01T06:13:44Z" finished-at="2018-04-01T06:13:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=successfulLogOn status=SUCCESS method=LogOnTest.successfulLogOn()[pri:0, instance:tests.LogOnTest@43d7741f] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="initialise(java.lang.String)[pri:0, instance:tests.LogOnTest@43d7741f]" name="initialise" is-config="true" duration-ms="3622" started-at="2018-04-01T06:13:45Z" finished-at="2018-04-01T06:13:49Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialise -->
+        <test-method status="PASS" signature="invalidUserName()[pri:1, instance:tests.LogOnTest@43d7741f]" name="invalidUserName" duration-ms="2294" started-at="2018-04-01T06:13:49Z" finished-at="2018-04-01T06:13:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalidUserName -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:tests.LogOnTest@43d7741f]" name="getResult" is-config="true" duration-ms="1" started-at="2018-04-01T06:13:51Z" finished-at="2018-04-01T06:13:51Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=invalidUserName status=SUCCESS method=LogOnTest.invalidUserName()[pri:1, instance:tests.LogOnTest@43d7741f] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:tests.LogOnTest@43d7741f]" name="tearDown" is-config="true" duration-ms="208" started-at="2018-04-01T06:13:51Z" finished-at="2018-04-01T06:13:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="initialise(java.lang.String)[pri:0, instance:tests.LogOnTest@43d7741f]" name="initialise" is-config="true" duration-ms="3371" started-at="2018-04-01T06:13:51Z" finished-at="2018-04-01T06:13:55Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialise -->
+        <test-method status="PASS" signature="invalidPassword()[pri:3, instance:tests.LogOnTest@43d7741f]" name="invalidPassword" duration-ms="3209" started-at="2018-04-01T06:13:55Z" finished-at="2018-04-01T06:13:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- invalidPassword -->
+        <test-method status="PASS" signature="getResult(org.testng.ITestResult)[pri:0, instance:tests.LogOnTest@43d7741f]" name="getResult" is-config="true" duration-ms="1" started-at="2018-04-01T06:13:58Z" finished-at="2018-04-01T06:13:58Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=invalidPassword status=SUCCESS method=LogOnTest.invalidPassword()[pri:3, instance:tests.LogOnTest@43d7741f] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getResult -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:tests.LogOnTest@43d7741f]" name="tearDown" is-config="true" duration-ms="242" started-at="2018-04-01T06:13:58Z" finished-at="2018-04-01T06:13:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="closeReport()[pri:0, instance:tests.LogOnTest@43d7741f]" name="closeReport" is-config="true" duration-ms="246" started-at="2018-04-01T06:13:58Z" finished-at="2018-04-01T06:13:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeReport -->
       </class> <!-- tests.LogOnTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Log on Related Test Cases -->
+  </suite> <!-- Suite -->
 </testng-results>

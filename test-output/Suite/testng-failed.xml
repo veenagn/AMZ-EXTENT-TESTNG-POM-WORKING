@@ -2,17 +2,18 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <test thread-count="5" name="Test(failed)">
+    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="tests.LogOnTest">
+      <class name="tests.SearchItemTest">
         <methods>
           <include name="startReport"/>
-          <include name="successfulLogOn"/>
           <include name="initialise"/>
           <include name="tearDown"/>
           <include name="closeReport"/>
           <include name="getResult"/>
+          <include name="verifySearchItem"/>
         </methods>
-      </class> <!-- tests.LogOnTest -->
+      </class> <!-- tests.SearchItemTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -52,6 +52,7 @@ public class HomePage extends Base {
 		String selectItem = prop.getProperty("autoselect");
 		List<WebElement> optionsToSelect = autoSelectItem;
 		for (WebElement option : optionsToSelect) {
+			wait.until(ExpectedConditions.visibilityOf(option));
 			if (option.getText().equalsIgnoreCase(selectItem)) {
 				option.click();
 				break;

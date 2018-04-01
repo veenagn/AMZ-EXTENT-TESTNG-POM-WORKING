@@ -22,13 +22,12 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-//import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 //import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -61,17 +60,19 @@ public class Base {
 	}
 
 	// Initialising the Web Driver - Before Method
-	@BeforeClass
-	public static void initialise() {
+	//@BeforeClass
+	@Parameters("browser")
+	@BeforeMethod
+	public static void initialise(String browser) {
 		test=extent.createTest("Open test URL");
-		String data = prop.getProperty("browser");
+		browser = prop.getProperty("browserName");
 		try {
-			if (data.equals("Firefox")) {
+			if (browser.equalsIgnoreCase("Firefox")) {
 				System.setProperty("webdriver.gecko.driver", "//Users//veena//eclipse-workspace//geckodriver");
 				driver = new FirefoxDriver();
-			} else if (data.equals("Safari")) {
+			} else if (browser.equalsIgnoreCase("Safari")) {
 				driver = new SafariDriver();
-			} else if (data.equals("Chrome")) {
+			} else if (browser.equalsIgnoreCase("Chrome")) {
 				ChromeOptions options = new ChromeOptions();
 				options.addArguments("start-fullscreen");
 				driver = new ChromeDriver(options);
@@ -83,7 +84,7 @@ public class Base {
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		driver.get(url);
-		test.log(Status.PASS, "Browser: " +data+ " opened the site under test: " +url);
+		test.log(Status.PASS, "Browser: " +browser+ " opened the site under test: " +url);
 	}
 	
 	public static String capture(WebDriver driver,String screenShotName) throws IOException
@@ -123,9 +124,7 @@ public class Base {
 	@BeforeSuite
 	public void startReport() {
 
-		System.out.println("@Before Suite");
 		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/test-output/MyOwnReport.html");
-		System.out.println(">>>>htmlReporter:" + htmlReporter);
 		extent = new ExtentReports();
 		extent.attachReporter(htmlReporter);
 
@@ -141,7 +140,8 @@ public class Base {
 		htmlReporter.config().setTheme(Theme.DARK);
 	}
 
-	@AfterClass
+	//@AfterClass
+	@AfterMethod
 	public void tearDown() {
 		driver.close();
 	}

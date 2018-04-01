@@ -26,8 +26,7 @@ public class PasswordPage  extends Base {
 		return passwordLable.getText();
 	}
 	
-	public void enterPassword() {
-		String psswrd = prop.getProperty("password");
+	public void enterPassword(String psswrd ) {
 		passwrdTxb.sendKeys(psswrd);
 	}
 	
