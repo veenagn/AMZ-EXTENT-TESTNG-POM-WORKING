@@ -11,9 +11,6 @@
 			<class name="tests.SearchItemTest" />
 		</classes>
 	</test>
-	<test name="Log on Related Test Cases">
-		<classes>
-			<class name="tests.LogOnTest" />
-		</classes>
-	</test> 	 <!-- Test -->
+	<!-- <test name="Log on Related Test Cases"> <classes> <class name="tests.LogOnTest" 
+		/> </classes> </test> -->	 <!-- Test -->
 </suite> <!-- Suite -->

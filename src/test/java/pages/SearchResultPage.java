@@ -16,6 +16,9 @@ public class SearchResultPage extends Base {
 	
 	@FindBy(name="s-ref-checkbox-419158031") WebElement primeCheckbox;
 	
+	@FindBy(css ="a.a-color-base:nth-child(2)")  WebElement primeLable;
+	
+
 	// Creating Constructors
 	public SearchResultPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
@@ -38,5 +41,7 @@ public class SearchResultPage extends Base {
 		return new RefineByPrimePage(driver);
 	}
 	
-	
+	public String getPrimeLable() {
+		return primeLable.getText();
+	}
 }

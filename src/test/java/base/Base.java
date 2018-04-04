@@ -62,6 +62,7 @@ public class Base {
 	@Parameters("browser")
 	@BeforeMethod
 	public static void initialise(String browser) {
+		test=extent.createTest("Open test URL");
 		browser = prop.getProperty("browserName");
 		try {
 			if (browser.equalsIgnoreCase("Firefox")) {
@@ -81,6 +82,7 @@ public class Base {
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		driver.get(url);
+		test.log(Status.PASS, "Browser: " +browser+ " opened the site under test: " +url);
 	}
 	
 	public static String capture(WebDriver driver,String screenShotName) throws IOException

@@ -71,7 +71,7 @@ public class SearchItemTest extends Base {
 		
 	}
 	
-	@Test(priority=6)
+	//@Test(priority=6)
 	public void selectCategory() {
 		test=extent.createTest("Select Casserole Dishes from the submenu on left after filtering for prime items : Verify by the title");
 		test.log(Status.PASS, "Navigate to Test URL");
@@ -96,7 +96,7 @@ public class SearchItemTest extends Base {
 		test.log(Status.PASS, "Verified the sub menu selected by lable: " +refineByCatPage.getSubMenuLable());		
 	}
 	
-	@Test(priority=7)
+	//@Test(priority=7)
 	public void selectItemToPurchase() throws Exception {
 		test=extent.createTest("Select item to buy from result page  : Verify by the title");
 		test.log(Status.PASS, "Navigate to Test URL");
