@@ -7,15 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-//import org.testng.Assert;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.Base;
 
 public class HomePage extends Base {
-
-	static WebDriverWait wait = new WebDriverWait(driver,20);
-
+	
+	static WebDriverWait wait = new WebDriverWait(driver, 5000);
+	
 	//All Page Elements to be tested in the HomePage	
 	@FindBy(id = "twotabsearchtextbox") WebElement searchtxb;
 
@@ -37,6 +36,7 @@ public class HomePage extends Base {
 	
 	// Enter partial text in the search textbox
 	public void searchItem() {
+		wait.until(ExpectedConditions.visibilityOf(searchtxb));
 		String searchText = prop.getProperty("searchtext");
 		searchtxb.sendKeys(searchText);
 	}
@@ -52,6 +52,7 @@ public class HomePage extends Base {
 		String selectItem = prop.getProperty("autoselect");
 		List<WebElement> optionsToSelect = autoSelectItem;
 		for (WebElement option : optionsToSelect) {
+			wait.until(ExpectedConditions.visibilityOf(option));
 			if (option.getText().equalsIgnoreCase(selectItem)) {
 				option.click();
 				break;

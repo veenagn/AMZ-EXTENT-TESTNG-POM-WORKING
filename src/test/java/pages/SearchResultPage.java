@@ -1,16 +1,23 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import base.Base;
 
 public class SearchResultPage extends Base {
-
+	
+	static WebDriverWait wait = new WebDriverWait(driver, 5000);
+	
+	@FindBy(name="s-ref-checkbox-419158031") WebElement primeCheckbox;
+	
 	// Creating Constructors
 	public SearchResultPage(WebDriver driver) {
-		// this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
 
@@ -24,4 +31,12 @@ public class SearchResultPage extends Base {
 		String expectedSearchPageTitle = getResultPageTitle();
 		Assert.assertEquals(expectedSearchPageTitle, actualSearchPageTitle);
 	}
+	
+	public RefineByPrimePage clickPrimeCheckbox() {
+		wait.until(ExpectedConditions.elementToBeClickable(primeCheckbox));
+		primeCheckbox.click();
+		return new RefineByPrimePage(driver);
+	}
+	
+	
 }

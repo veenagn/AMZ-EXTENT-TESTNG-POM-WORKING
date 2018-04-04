@@ -1,1 +1,5 @@
-/target/
+/.metadata/
+/.recommenders/
+target
+*shot*
+*output*

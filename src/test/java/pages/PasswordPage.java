@@ -4,11 +4,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.Base;
 import junit.framework.Assert;
 
 public class PasswordPage  extends Base {
+
+	static WebDriverWait wait = new WebDriverWait(driver, 1000);
 	
 	@FindBy(xpath="//*[@for='ap_password']")  WebElement passwordLable;
 	
@@ -26,8 +30,8 @@ public class PasswordPage  extends Base {
 		return passwordLable.getText();
 	}
 	
-	public void enterPassword() {
-		String psswrd = prop.getProperty("password");
+	public void enterPassword(String psswrd ) {
+		wait.until(ExpectedConditions.visibilityOf(passwrdTxb));
 		passwrdTxb.sendKeys(psswrd);
 	}
 	
@@ -36,6 +40,7 @@ public class PasswordPage  extends Base {
 	}
 	
 	public SignedOnPage clickPasswordSignInButton() {
+		wait.until(ExpectedConditions.elementToBeClickable(passWordSignInButton));
 		passWordSignInButton.click();
 		return new SignedOnPage(driver);
 	}	
