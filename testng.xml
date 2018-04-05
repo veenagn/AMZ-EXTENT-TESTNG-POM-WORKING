@@ -6,11 +6,11 @@
 		<listener class-name="base.CustomTestNGReporter"></listener>
 	</listeners>
 	<parameter name="browser" value="Chrome" />
-	<test name="Search Related Test Cases">
+	<!-- <test name="Search Related Test Cases">
 		<classes>
 			<class name="tests.SearchItemTest" />
 		</classes>
-	</test>
+	</test> -->
 	<test name="Log on Related Test Cases">
 		<classes>
 			<class name="tests.LogOnTest" />

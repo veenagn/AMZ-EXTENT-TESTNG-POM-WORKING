@@ -19,7 +19,7 @@ public class LogOnTest extends Base {
 	}
 
 	@Test(priority=0)
-	public void successfulLogOn() {
+	public void successfulLogOn() throws InterruptedException {
 		test = extent.createTest("Log On -Successfull");
 		test.log(Status.PASS, "Navigate to Test URL");
 		HomePage home = new HomePage(driver);
@@ -56,8 +56,8 @@ public class LogOnTest extends Base {
 	}
 	
 	//Invalid UserName
-	@Test(priority=1)
-	public void invalidUserName() throws IOException {
+	//@Test(priority=1)
+	public void invalidUserName() throws IOException, InterruptedException {
 		test = extent.createTest("Invalid UserName - Verify Error Message Displayed");
 		test.log(Status.PASS, "Navigate to Test URL");
 		HomePage home = new HomePage(driver);
@@ -84,8 +84,8 @@ public class LogOnTest extends Base {
 	}
 		
 	//Invalid Password
-	@Test(priority=3)
-	public void invalidPassword() throws IOException {
+	//@Test(priority=3)
+	public void invalidPassword() throws IOException, InterruptedException {
 		test = extent.createTest("Invalid Password - Verify Error Message Displayed");
 		test.log(Status.PASS, "Navigate to Test URL");
 		HomePage home = new HomePage(driver);

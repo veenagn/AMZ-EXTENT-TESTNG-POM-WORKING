@@ -80,7 +80,8 @@ public class Base {
 		}
 		String url = prop.getProperty("url");
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		driver.get(url);
 		//test.log(Status.PASS, "Browser: " +browser+ " opened the site under test: " +url);
 	}
