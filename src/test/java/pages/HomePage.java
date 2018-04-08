@@ -22,7 +22,7 @@ public class HomePage extends Base {
 
 	@FindBy(className = "s-suggestion")
 	List<WebElement> autoSelectItem;
-
+	
 	@FindBy(id = "nav-signin-tooltip")
 	WebElement homesignInButton;
 
@@ -59,6 +59,7 @@ public class HomePage extends Base {
 	public SearchResultPage selectFromAutoSelect() {
 		String selectItem = prop.getProperty("autoselect");
 		List<WebElement> optionsToSelect = autoSelectItem;
+		wait.until(ExpectedConditions.visibilityOfAllElements(autoSelectItem));
 		for (WebElement option : optionsToSelect) {
 			wait.until(ExpectedConditions.visibilityOf(option));
 			if (option.getText().equalsIgnoreCase(selectItem)) {

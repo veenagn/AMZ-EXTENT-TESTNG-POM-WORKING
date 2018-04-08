@@ -6,14 +6,22 @@
 		<listener class-name="base.CustomTestNGEmailReporter"></listener>
 	</listeners>
 	<parameter name="browser" value="Chrome" />
-	<test name="Search Related Test Cases">
+	
+	<test name="Shop For Item">
+		<classes>
+			<class name="tests.ShopForItemTest" />
+		</classes>
+	</test>
+	
+	 <test name="Search Related Test Cases">
 		<classes>
 			<class name="tests.SearchItemTest" />
 		</classes>
-	</test>
-	<!--<test name="Log on Related Test Cases">
+	</test> 
+	
+	<test name="Log on Related Test Cases">
 		<classes>
 			<class name="tests.LogOnTest" />
 		</classes>
-	</test>  --> 	 <!-- Test -->
+	</test>    	 <!-- Test -->
 </suite> <!-- Suite -->

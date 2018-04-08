@@ -1,6 +1,7 @@
 package pages;
 
 import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,10 +16,14 @@ public class RefineByCategoryPage extends Base {
 	
 	static WebDriverWait wait = new WebDriverWait(driver, 5000);
 	
-	//@FindBy(xpath="//h2[@class='a-size-base s-inline s-access-title a-text-normal']") List<WebElement> linkElement;
-
 	@FindBy(linkText = "Casserole Dishes")
 	WebElement subMenuItemLabel;
+	
+//	@FindBy(id = "pagnNextString")
+//	WebElement nextPage;
+//	
+//	@FindBy(xpath ="//h2[@class='a-size-base s-inline  s-access-title  a-text-normal']")
+//	List<WebElement> linkElement;
 
 	boolean itemfound = false;
 	String itemToPurchase = prop.getProperty("itemToPurchase");
