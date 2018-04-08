@@ -56,7 +56,7 @@ public class LogOnTest extends Base {
 	}
 	
 	//Invalid UserName
-	//@Test(priority=1)
+	@Test(priority=1)
 	public void invalidUserName() throws IOException, InterruptedException {
 		test = extent.createTest("Invalid UserName - Verify Error Message Displayed");
 		test.log(Status.PASS, "Navigate to Test URL");
@@ -84,7 +84,7 @@ public class LogOnTest extends Base {
 	}
 		
 	//Invalid Password
-	//@Test(priority=3)
+	@Test(priority=3)
 	public void invalidPassword() throws IOException, InterruptedException {
 		test = extent.createTest("Invalid Password - Verify Error Message Displayed");
 		test.log(Status.PASS, "Navigate to Test URL");

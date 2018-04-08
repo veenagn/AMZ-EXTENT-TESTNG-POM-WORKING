@@ -27,9 +27,9 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.*;
 
-public class CustomTestNGReporter implements IReporter {
+public class CustomTestNGEmailReporter implements IReporter {
 
-    private static final Logger L = Logger.getLogger(CustomTestNGReporter.class);
+    private static final Logger L = Logger.getLogger(CustomTestNGEmailReporter.class);
 
     // ~ Instance fields ------------------------------------------------------
 
@@ -64,7 +64,7 @@ public class CustomTestNGReporter implements IReporter {
     protected PrintWriter createWriter(String outdir) throws IOException {
 
         new File(outdir).mkdirs();
-        return new PrintWriter(new BufferedWriter(new FileWriter(new File(outdir, "customized-emailable-report.html"))));
+        return new PrintWriter(new BufferedWriter(new FileWriter(new File(outdir, "MyOwnEmailableReport.html"))));
 
     }
 
@@ -219,7 +219,6 @@ public class CustomTestNGReporter implements IReporter {
                         + "<td class=\"numi\" style=\"text-align:left;padding-right:2em\">" + firstLine+"<br/>"+screenshotLnk+ "</td>"
                         + "<td style=\"text-align:right\">" + formatter.format(calendar.getTime()) + "</td>" + "<td class=\"numi\">"
                         + millisToTimeConversion(end - start) + "</td>" + "</tr>");
-                //resultSet.size()
             }
             if (mq > 0) {
                 cq += 1;
@@ -286,14 +285,10 @@ public class CustomTestNGReporter implements IReporter {
 
     private void resultDetail(IResultMap tests) {
 
-        //Mahesh added
         Set<ITestResult> testResults=tests.getAllResults();
-        //System.out.println("resultDetail before sort .."+ testResults);
         List<ITestResult> list = new ArrayList<ITestResult>(testResults);
         Collections.sort(list, new TestResultsSorter());
-        //System.out.println("resultDetail after sort .."+ list);
 
-        //for (ITestResult result : tests.getAllResults()) {
         for (ITestResult result : list) {
             ITestNGMethod method = result.getMethod();
             methodIndex++;
@@ -384,16 +379,12 @@ public class CustomTestNGReporter implements IReporter {
         List<IInvokedMethod> r = Lists.newArrayList();
         List<IInvokedMethod> invokedMethods = suite.getAllInvokedMethods();
         for (IInvokedMethod im : invokedMethods) {
-            //System.out.println("suite.getAllInvokedMethods()  .."+im);
             if (tests.getAllMethods().contains(im.getTestMethod())) {
                 r.add(im);
             }
         }
-        //System.out.println("r ....."+ r.toString());
-        //Arrays.sort(r.toArray(new IInvokedMethod[r.size()]), new TestSorter());
         Collections.sort(r,new TestSorter());
 
-        //System.out.println("Sorted Array .."+r.toString());
         List<ITestNGMethod> result = Lists.newArrayList();
 
         // Add all the invoked methods
@@ -409,18 +400,13 @@ public class CustomTestNGReporter implements IReporter {
 
         Collection<ITestNGMethod> allMethodsCollection=tests.getAllMethods();
         List<ITestNGMethod> allMethods=new ArrayList<ITestNGMethod>(allMethodsCollection);
-        //System.out.println("All methods before sort"+ allMethods.toString());
         Collections.sort(allMethods, new TestMethodSorter());
-        //System.out.println("After sorting "+allMethods.toString());
 
-        //for (ITestNGMethod m : tests.getAllMethods()) {
         for (ITestNGMethod m : allMethods) {
-            //System.out.println("tests.getAllMethods()  .."+m);
             if (!result.contains(m)) {
                 result.add(m);
             }
         }
-        //System.out.println("results ....."+ result.toString());
         return result;
     }
 
@@ -613,9 +599,8 @@ public class CustomTestNGReporter implements IReporter {
         		int r =o1.getTestMethod().getTestClass().getName().compareTo(o2.getTestMethod().getTestClass().getName());
         			
 //            if (r == 0) {
-//                //System.out.println("First method name "+o1.getTestMethod());
-//                //System.out.println("second method name "+o2.getTestMethod());
 //                r=((File) o1.getTestMethod()).compareTo((File) o2.getTestMethod());
+        			r=o1.getClass().getName().compareTo(o2.getClass().getName());
 //
 //            }
             return r;
@@ -626,14 +611,8 @@ public class CustomTestNGReporter implements IReporter {
     private class TestMethodSorter implements Comparator<ITestNGMethod> {
         @Override
         public int compare(ITestNGMethod o1, ITestNGMethod o2) {
-            //return (int) (o1.getDate() - o2.getDate());
-            //System.out.println("First method class name "+o1.getTestClass().getName());
-            //System.out.println("second method class name "+o2.getTestClass().getName());
             int r =o1.getTestClass().getName().compareTo(o2.getTestClass().getName());
-            //System.out.println("class name compare "+ r);
             if (r == 0) {
-                //System.out.println("First method name "+o1.getMethodName());
-                //System.out.println("second method name "+o2.getMethodName());
                 r=o1.getMethodName().compareTo(o2.getMethodName());
             }
             return r;
@@ -643,13 +622,8 @@ public class CustomTestNGReporter implements IReporter {
     private class TestResultsSorter implements Comparator<ITestResult> {
         @Override
         public int compare(ITestResult o1, ITestResult o2) {
-            //return (int) (o1.getMethod().getDate() - o2.getMethod().getDate());
-            //System.out.println("First method class name "+o1.getTestClass().getName());
-            //System.out.println("second method class name "+o2.getTestClass().getName());
             int result = o1.getTestClass().getName().compareTo(o2.getTestClass().getName());
             if (result == 0) {
-                //System.out.println("First method name "+o1.getMethod().getMethodName());
-                //System.out.println("second method name "+o2.getMethod().getMethodName());
                 result = o1.getMethod().getMethodName().compareTo(o2.getMethod().getMethodName());
             }
             return result;

@@ -2,18 +2,18 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="none" allow-return-values="true">
 	<listeners>
-		<listener class-name="base.AnnotationTransformer" />
-		<listener class-name="base.CustomTestNGReporter"></listener>
+		<listener class-name="base.RetryAnnotationTransformer" />
+		<listener class-name="base.CustomTestNGEmailReporter"></listener>
 	</listeners>
 	<parameter name="browser" value="Chrome" />
-	<!-- <test name="Search Related Test Cases">
+	<test name="Search Related Test Cases">
 		<classes>
 			<class name="tests.SearchItemTest" />
 		</classes>
-	</test> -->
-	<test name="Log on Related Test Cases">
+	</test>
+	<!--<test name="Log on Related Test Cases">
 		<classes>
 			<class name="tests.LogOnTest" />
 		</classes>
-	</test> 	 <!-- Test -->
+	</test>  --> 	 <!-- Test -->
 </suite> <!-- Suite -->

@@ -86,6 +86,7 @@ public class Base {
 		//test.log(Status.PASS, "Browser: " +browser+ " opened the site under test: " +url);
 	}
 	
+	//Take Screenshot
 	public static String capture(WebDriver driver,String screenShotName) throws IOException
     {
 		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
@@ -99,14 +100,16 @@ public class Base {
 		 return destination;
     }
 	
+	//Create Custom/Extent Report after every method is executed
+	//Take screenshot and embed to the report if test fails
 	@AfterMethod
 	public void getResult(ITestResult result) throws IOException {
+		
 		if (result.getStatus() == ITestResult.FAILURE)
-        {
+        {		
             String screenShotPath = capture(driver, "screenShotName");
-            test.log(Status.FAIL, MarkupHelper.createLabel(result.getName()+" Test case FAILED due to below issues:", ExtentColor.RED));
+            test.log(Status.FAIL, MarkupHelper.createLabel(result.getName()+" Test case FAILED due to following reason: ", ExtentColor.RED));
             test.fail(result.getThrowable());
-            //test.fail("Snapshot below: " + test.addScreenCaptureFromPath(screenShotPath));
             test.fail("Snapshot below: ").addScreenCaptureFromPath(screenShotPath);
         }
         else if(result.getStatus() == ITestResult.SUCCESS)
@@ -115,11 +118,12 @@ public class Base {
         }
         else
         {
-            test.log(Status.SKIP, MarkupHelper.createLabel(result.getName()+" Test Case SKIPPED", ExtentColor.ORANGE));
-            test.skip(result.getThrowable());
+            test.log(Status.ERROR, MarkupHelper.createLabel(result.getName()+" Test Case ERROR due to following reason: ", ExtentColor.AMBER));
+            test.error(result.getThrowable());
         }
 	}
-
+	
+	//Initialise Extent Report creation before executing the testcases
 	@BeforeSuite
 	public void startReport() {
 
@@ -133,18 +137,19 @@ public class Base {
 		extent.setSystemInfo("User Name", "Veena Nair");
 
 		htmlReporter.config().setChartVisibilityOnOpen(true);
-		htmlReporter.config().setDocumentTitle("AutomationTesting.in Demo Report");
+		htmlReporter.config().setDocumentTitle("AutomationTesting Demo Report");
 		htmlReporter.config().setReportName("My Own Report");
 		htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
 		htmlReporter.config().setTheme(Theme.DARK);
 	}
 
-	//@AfterClass
+	//Close the driver after every test case
 	@AfterMethod
 	public void tearDown() {
 		driver.close();
 	}
 	
+	//Flush the report - Close the report after completion of test
 	@AfterSuite()
 	public void closeReport() {
 		extent.flush();

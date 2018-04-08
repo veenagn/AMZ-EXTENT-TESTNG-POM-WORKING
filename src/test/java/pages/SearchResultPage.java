@@ -30,9 +30,14 @@ public class SearchResultPage extends Base {
 
 	// Method or function to verify Home Page
 	public void verifySearchResultPageTitle() {
-		String actualSearchPageTitle = prop.getProperty("expectedResultTitle");
-		String expectedSearchPageTitle = getResultPageTitle();
-		Assert.assertEquals(expectedSearchPageTitle, actualSearchPageTitle);
+		try {
+			String actualSearchPageTitle = prop.getProperty("expectedResultTitle");
+			String expectedSearchPageTitle = getResultPageTitle();
+			Assert.assertEquals(actualSearchPageTitle, expectedSearchPageTitle);	
+		} 
+		catch(Exception e) {
+			e.getMessage();
+		}
 	}
 	
 	public RefineByPrimePage clickPrimeCheckbox() {
@@ -41,7 +46,4 @@ public class SearchResultPage extends Base {
 		return new RefineByPrimePage(driver);
 	}
 	
-	public String getPrimeLable() {
-		return primeLable.getText();
-	}
 }
